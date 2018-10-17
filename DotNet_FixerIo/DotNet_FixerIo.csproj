@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseRest.cs" />
     <Compile Include="Manage\Converter.cs" />
     <Compile Include="Manage\Fluctuate.cs" />
     <Compile Include="Manage\Info.cs" />

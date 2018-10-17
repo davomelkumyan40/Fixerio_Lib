@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DotNet_FixerIo
 {
-    interface IFixerIo
+    interface IFixerIo<T>
     {
         string PrefixUrl { get; set; }
         string Access_Key { get; set; }
@@ -17,21 +17,21 @@ namespace DotNet_FixerIo
         string Condition { get; set; }
         string JsonString { get; set; }
         Endpoint Endpoint { get; set; }
-        Error Error { get; set; }
-        RateInfo BaseRateInfo { get; set; }
+        T Error { get; set; }
+        T BaseRateInfo { get; set; }
         string RequestUrl { get; }
 
-        RateInfo GetLatestRates();
-        RateInfo GetRatesBy(string condition);
-        RateInfo GetRatesBy(string condition, DateTime date);
-        RateInfo GetRatesBy(string baseCurency, params string[] symbols);
-        RateInfo GetRatesBy(string baseCurency, DateTime date, params string[] symbols);
-        RateInfo GetByDate(DateTime date);
-        RateInfo GetFromFile();
-        RateInfo GetFromFile(string fileName);
-        Converter Convert(string from, string to, decimal amount);
-        TimeSeries GetTimeSeries(DateTime start_date, DateTime end_date);
-        Fluctuate GetFluctuation(DateTime start_date, DateTime end_date);
+        T GetLatestRates();
+        T GetRatesBy(string condition);
+        T GetRatesBy(string condition, DateTime date);
+        T GetRatesBy(string baseCurency, params string[] symbols);
+        T GetRatesBy(string baseCurency, DateTime date, params string[] symbols);
+        T GetByDate(DateTime date);
+        T GetFromFile();
+        T GetFromFile(string fileName);
+        T Convert(string from, string to, decimal amount);
+        T GetTimeSeries(DateTime start_date, DateTime end_date);
+        T GetFluctuation(DateTime start_date, DateTime end_date);
         void SaveAs();
         void Update();
         bool DeleteJsonFile();
